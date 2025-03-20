@@ -85,8 +85,8 @@ _dock_io = [
     ("led", 1, Pins("J1:25"), IOStandard("LVCMOS33")), # Pin DONE.
 
     # Buttons.
-    ("btn_n", 0, Pins("J1:37"), IOStandard("LVCMOS33")),
-    ("btn_n", 1, Pins("J1:39"), IOStandard("LVCMOS33")),
+    ("btn", 0, Pins("J1:37"), IOStandard("LVCMOS33"), Misc("PULL_MODE=DOWN")),
+    ("btn", 1, Pins("J1:39"), IOStandard("LVCMOS33"), Misc("PULL_MODE=DOWN")),
 
     # USB.
     ("usb", 0,
@@ -97,10 +97,32 @@ _dock_io = [
 ]
 
 _dock_connectors = [
-    # Pmod
-    ("j4", "G11 D11 B11 C11 G10 D10 B10 C10"),
-    ("j5", "A11 E11 K11  L5 A10 E10 L11  K5"),
-    ("j6", " F5  G7  H8  H5  G5  G8  H7  J5"),
+    ("J4", {
+        1:  "---", 2:  "---", # +3V3
+        3:  "---", 4:  "---", # GND
+        5:  "C11", 6:  "C10",
+        7:  "B11", 8:  "B10",
+        9:  "D11", 10: "D10",
+        11: "G11", 12: "G10",
+    }),
+
+    ("J5", {
+        1:  "---", 2:  "---", # +3V3
+        3:  "---", 4:  "---", # GND
+        5:  "L5",  6:  "K5",
+        7:  "K11", 8:  "L11",
+        9:  "E11", 10: "E10",
+        11: "A11", 12: "A10",
+    }),
+
+    ("J6", {
+        1:  "---", 2:  "---", # +3V3
+        3:  "---", 4:  "---", # GND
+        5:  "H5",  6:  "J5",
+        7:  "H8",  8:  "H7",
+        9:  "G7",  10: "G8",
+        11: "F5",  12: "G5",
+    }),
 
     ("j3", {
          1:  "K2",  2:  "K1",
